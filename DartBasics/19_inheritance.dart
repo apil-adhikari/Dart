@@ -1,50 +1,48 @@
+// Dart does not support multiple inheritance
+
 void main() {
-  // Inheritance
-  // "is-a" relationship
-  // Abstract classes
-  // Object Oriented Programming(OOP)
-
-  Car myCar = Car();
-  myCar.printNoOfWheels();
-  print(myCar.isEngineWorking);
-
-  Truck myTruck = Truck();
-  myTruck.printNoOfWheels();
-  print(myTruck.isEngineWorking);
-  myTruck.accelerate();
+  Vehicle myVehicle = Vehicle();
+  print("Speed: ${myVehicle.speed} km/h");
+  myVehicle.acclerate();
 }
 
-class Vehicle {
-  int speed = 10;
-  bool isEngineWorking = false;
-  bool isLightsOn = true;
+class SomeClass {
+  double speed = 10; // km/h
 
-  void accelerate() {
-    speed += 10;
-    print("Vehicle accelerated to $speed");
+  void acclerate() {
+    speed += 20;
+  }
+}
+
+class Vehicle extends SomeClass {
+  bool isEngileOn = false;
+  bool isLightsOn = false;
+
+  void startEngile() {
+    isEngileOn = true;
+    isLightsOn = true;
+
+    print("Engile Started!");
+    print("Lights are on.");
+  }
+
+  // I have same method and matching function signature,
+  // above in parent class. If we use myVehicle.acclerate
+  // which is in parent also, so we are overriding the method of parent class
+  // in child class. We need to use @override
+
+  // The memeber 'acclerate' overrides an inherited memeber: it is recommended
+  // to use @override for better readablility although it is optional
+  @override
+  void acclerate() {
+    speed += 40;
+    print('Now, speed is ${speed}');
   }
 }
 
 class Car extends Vehicle {
-  int speed = 10;
-  bool isEngineWorking = false;
-  bool isLightsOn = true;
-
-  int noOWheels = 4;
-
-  void printNoOfWheels() {
-    print(noOWheels);
-  }
-}
-
-class Truck extends Vehicle {
-  int speed = 10;
-  bool isEngineWorking = false;
-  bool isLightsOn = true;
-
-  int noOWheels = 4;
-
-  void printNoOfWheels() {
-    print(noOWheels);
+  void acclerate() {
+    speed += 10;
+    print('Car speed is : ${speed}');
   }
 }
