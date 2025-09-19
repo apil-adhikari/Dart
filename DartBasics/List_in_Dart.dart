@@ -90,7 +90,23 @@ void main() {
 
   print("SET: ${StudentSet}");
 
-  // Map: Simiar to Objects in other programming language:
+  print("------------------------------------------");
+  print("Map in Dart");
+
+  /// Map: Simiar to Objects in other programming
+  /// It is simply key:value pair
+
+  // List marksOfStudents = [10, 20, 30];
+
+  Map<String, int> marksOfStudents = {"Ram": 10, "Shyam": 30, "Apil": 30};
+
+  print(marksOfStudents['test']?.isEven);
+
+  if (marksOfStudents['Apil'] == null) {
+    print('Key does not exists');
+  } else {
+    print(marksOfStudents['Apil']!.isEven);
+  }
 }
 
 class Student<T> {
