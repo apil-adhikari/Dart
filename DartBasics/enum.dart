@@ -1,5 +1,5 @@
 void main() {
-  final employee1 = Employee("Apil", EmployeeType.swe);
+  // final employee1 = Employee("Apil", EmployeeType.swe);
   final employee2 = Employee("Naman", EmployeeType.finance);
 
   final employee3 = Employee("Sonal", EmployeeType.marketing);
